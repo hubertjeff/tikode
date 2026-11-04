@@ -2,7 +2,8 @@ import { DatabaseSync } from 'node:sqlite'
 
 
 //create a temporary database inside the memory.
-const db = new DatabaseSync(':memory')
+const dbPath = ':memory'
+const db = new DatabaseSync(dbPath)
 
 //create the database if not exist yet.
 //users table

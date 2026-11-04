@@ -34,6 +34,7 @@ router.post('/register', (req,res)=>{
 
         //create the jwt token
         const token = jwt.sign({id:Number(userId)}, process.env.JWT_SECRET,{expiresIn:'24h'})
+   
         res.status(201).json({token})
 
     }catch(err){
@@ -63,12 +64,12 @@ router.post('/login',(req,res)=>{
     if(!isValid){
         return res.status(401).json({message : 'Wrong password'})
     }
-
+        //The token contains a header and payload, which are just encoded, so anyone can decode them without a key. The signature is computed from the header and payload using the jwt_secret, and only someone with the jwt_secret can produce or check it.
     const token = jwt.sign ({id :user.id}, process.env.JWT_SECRET, {expiresIn:'24h'})
 
-    //send it back
+    //send it back ,this is a js shortcutst {token} is exacly the same as {token : token}
     res.json({token})
-
+   //so res.json({token}) is sending a json file with {"token":"ejhg123ca.."}
 })
 
 

@@ -1,0 +1,53 @@
+get http://localhost:3008/api/health
+
+###
+POST http://localhost:3008/auth/register
+Content-Type: application/json
+
+{
+    "username" : "jeff",
+    "password" : "123123"
+}
+
+###
+POST http://localhost:3008/auth/login
+Content-Type: application/json
+
+{
+    "username" : "jeff",
+    "password" : "123123"
+}
+
+# ### with a valid token
+# get http://localhost:3008/api/me
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzODI1OTY1LCJleHAiOjE3OTM5MTIzNjV9.zFi2AYoeiZob5qWl7YSdr_qs7JlIYVnFVLXpVWPSuiQ
+
+
+### get my todos
+get http://localhost:3008/todos
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzODMxNTYwLCJleHAiOjE3OTM5MTc5NjB9.W29gWuunDn6xjrtago8pejMrTTXUXbsmlBldUHnp7vo
+
+### get todos without token
+get http://localhost:3008/todos
+
+### add a todo
+post http://localhost:3008/todos
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzODMxNTYwLCJleHAiOjE3OTM5MTc5NjB9.W29gWuunDn6xjrtago8pejMrTTXUXbsmlBldUHnp7vo
+Content-Type: application/json
+
+{
+    "task" : "geh einkaufen"
+}
+
+### (4) mark to do as done
+put http://localhost:3008/todos/4
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzODMxNTYwLCJleHAiOjE3OTM5MTc5NjB9.W29gWuunDn6xjrtago8pejMrTTXUXbsmlBldUHnp7vo
+Content-Type: application/json
+
+{
+    "completed" : 1
+}
+
+### (5) delete a todo
+DELETE http://localhost:3008/todos/3
+Authorization:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzkzODMxNTYwLCJleHAiOjE3OTM5MTc5NjB9.W29gWuunDn6xjrtago8pejMrTTXUXbsmlBldUHnp7vo
