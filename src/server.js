@@ -26,14 +26,12 @@ app.use('/todos', authMiddleware,todoRoutes)
 
 //only for testing
 
-app.get('/api/me', authMiddleware, (req,res)=>{
-    res.json({message : 'you are logged in', userId : req.userId})
+app.get('/api/me', (req,res)=>{
+    res.json({message : 'you are logged in', status : 'ok'})
 })
 
-app.get('/api/health', (req, res) => {
-    const users = db.prepare('SELECT COUNT(*) AS count FROM users').get()
-    const todos = db.prepare('SELECT COUNT(*) AS count FROM todos').get()
-    res.json({ status: 'ok', users: users.count, todos: todos.count })
+app.use((req, res) => {
+    res.status(404).json({ message: 'Route not found' })
 })
 
 

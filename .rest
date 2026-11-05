@@ -1,4 +1,4 @@
-get http://localhost:3008/api/health
+get http://localhost:3008/api/me
 
 ###
 POST http://localhost:3008/auth/register

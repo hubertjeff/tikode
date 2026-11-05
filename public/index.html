@@ -3,12 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tikode</title>
+    <title>Tikode | Simple todo lists</title>
+    <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <h1>Tikode</h1>
-    <p>Server is working!</p>
 
-    <script src="app.js"></script>
+    <!-- top bar -->
+    <header class="nav">
+        <a href="/" class="logo">✓ Tikode</a>
+        <a href="/login.html" id="navBtn" class="btn btn-small">Log in</a>
+    </header>
+
+    <!-- big intro -->
+    <section class="hero">
+        <h1>Get things done,<br>one tick at a time.</h1>
+        <p>Tikode is a simple todo list. Create an account, add your tasks, and tick them off.</p>
+        <a href="/login.html" id="heroBtn" class="btn">Get started, it's free</a>
+    </section>
+
+    <!-- features -->
+    <section class="features">
+        <div class="feature">
+            <div class="icon">✍️</div>
+            <h3>Add tasks fast</h3>
+            <p>Type it, press enter, done. No clutter.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">✅</div>
+            <h3>Tick them off</h3>
+            <p>Mark tasks as done and watch your list shrink.</p>
+        </div>
+        <div class="feature">
+            <div class="icon">🔒</div>
+            <h3>Private</h3>
+            <p>Your todos belong to your account. Nobody else can see them.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        Built with Node.js, Express and SQLite
+    </footer>
+
+    <script src="home.js"></script>
 </body>
 </html>
